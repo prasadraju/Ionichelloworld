@@ -1,0 +1,47 @@
+
+    
+ <ion-header>
+      <ion-navbar>
+        <ion-title>News List</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+
+<ion-content>
+
+    <ion-list>
+
+
+            <ion-item-sliding *ngFor="let art of article">
+                    <button ion-item (click)="openPropertyDetail(art)">
+                        <ion-thumbnail item-left>
+                            <img src="{{art.urlToImage}}"/>
+                        </ion-thumbnail>
+                        <h2>{{art.title}}</h2>
+                        <p>{{art.description}}</p>
+                    </button>
+                    <ion-item-options>
+                        <button danger (click)="deleteItem(property)">Delete</button>
+                    </ion-item-options>
+                </ion-item-sliding>
+
+        <!-- <ion-item-sliding *ngFor="let property of properties">
+            <button ion-item (click)="openPropertyDetail(property)">
+                <ion-thumbnail item-left>
+                    <img src="{{property.thumbnail}}"/>
+                </ion-thumbnail>
+                <h2>{{property.title}}</h2>
+                <p>{{property.city}}, {{property.state}} ∙ {{ property.price }}</p>
+            </button>
+            <ion-item-options>
+                <button danger (click)="deleteItem(property)">Delete</button>
+            </ion-item-options>
+        </ion-item-sliding> -->
+
+    </ion-list>
+
+    <div *ngIf="viewMode==='map'" style="width:100%;height:100%;" id="map"></div>
+
+</ion-content>
+
+
